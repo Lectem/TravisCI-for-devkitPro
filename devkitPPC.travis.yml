@@ -6,7 +6,7 @@ before_install:
   - export DEVKITPPC=${DEVKITPRO}/devkitPPC
 
 install:
-  - sudo perl devkitARMupdate.pl
+  - sudo perl devkitPPCupdate.pl
 
 script:
   - make
