@@ -1,0 +1,17 @@
+language: c
+
+before_install:
+  - wget http://sourceforge.net/projects/devkitpro/files/Automated%20Installer/devkitARMupdate.pl
+  - export DEVKITPRO=/home/travis/devkitPro
+  - export DEVKITARM=${DEVKITPRO}/devkitARM
+  - git clone https://github.com/smealum/ctrulib.git
+
+install:
+  - sudo perl devkitARMupdate.pl
+  - cd ctrulib/libctru 
+  - make
+  - cd ..
+  - sudo cp -rf libctru/ ${DEVKITPRO}
+  - cd ..
+script:
+  - make
